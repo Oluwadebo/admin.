@@ -71,7 +71,7 @@
             let userArray = [];
             let user_id = 0;
 
-        let dbRef = ref(db, "users");
+        let dbRef = ref(db, "admins");
         onValue(dbRef, function(snapshot){
             userArray = snapshot.val();
             if (userArray) {
@@ -85,7 +85,7 @@
             createUserWithEmailAndPassword(auth, emailInp.value, passInp.value)
             .then((credentials) => {
                 let user = {full_name: fname.value, phone_no: number.value, email: emailInp.value, uid: credentials.user.uid};
-                let userRef = ref(db, `users/${user_id}`);
+                let userRef = ref(db, `admins/${user_id}`);
                 set(userRef, user);
                 window.location = "admin.html";              
             }).catch((error) => {

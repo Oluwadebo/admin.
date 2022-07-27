@@ -16,7 +16,7 @@
             .nas{
               width: 85%;
               position: relative;
-              left: 240px;
+              left: 225px;
             }
             @media only screen and (max-width: 600px){
               .top{
@@ -93,6 +93,7 @@
                             <input type="file" class="form-control my-2" id="fileInp">
                             <input type="text" placeholder="Product name" class="form-control" id="todoInp">
                             <input type="text" placeholder="Product price" class="form-control my-2" id="todoInp2">
+                            <input type="text" placeholder="Discount" class="form-control my-2" id="todoInp3">
                             <button class="btn btn-dark w-100 my-2" id="todoBtn">Add</button>
                             <div id="loader" class="display-6 text-center" style="background-color: yellow;"></div>
                         </div>
@@ -140,7 +141,7 @@
                     userDetails.email = user.email;
                     userDetails.uid = user.uid;
                 } else {
-                    window.location = "signupseller.html";
+                    window.location = "signinseler.html";
                 }
             })
 
@@ -161,7 +162,7 @@
             
 
             document.getElementById("todoBtn").addEventListener("click", function(){
-                let todo = {pname:todoInp.value,price:todoInp2.value}
+                let todo = {pname:todoInp.value,price:todoInp2.value,Discount:todoInp3.value}
                 let files = fileInp.files[0];
                 let fileName = files.name;
                 let date = new Date();
@@ -199,6 +200,7 @@
                     todoHTML += `<div class="col-12 col-md-5 card shadow mb-2 p-2 mx-2">
                         <span style="font-size: 20px;" class="px-2">${todo.todo.pname}</span>
                         <span style="font-size: 20px;" class="px-2">$ ${todo.todo.price}</span>
+                        <span style="font-size: 20px;" class="px-2">- ${todo.todo.Discount}%</span>
                         <i class="text-muted px-2" style="font-size: 10px;">${todo.time}</i>
                         <button class="btn btn-dark my-2" id="${i}">delete</button>
                     </div>`
