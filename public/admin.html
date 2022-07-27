@@ -96,8 +96,9 @@
                         <div class=" col-12 col-md-3">
                             <input type="file" class="form-control my-2" id="fileInp" accept=".jpg, .jpeg, .png, .gif">
                             <input type="text" placeholder="Product name" class="form-control" id="todoInp">
-                            <input type="text" placeholder="$ Product price" class="form-control my-2" id="todoInp2">
-                            <input type="text" placeholder="Discount %" class="form-control my-2" id="todoInp3">
+                            <input type="number" placeholder="$ Product price" class="form-control my-2" id="todoInp2">
+                            <input type="number" placeholder="Discount %" class="form-control my-2" id="todoInp3">
+                            <input type="number" placeholder="Quantity available" class="form-control my-2" id="todoInp4">
                             <button class="btn btn-dark w-100 my-2" id="todoBtn">Add</button>
                             <div id="loader" class="display-6 text-center" style="background-color: yellow;"></div>
                         </div>
@@ -163,7 +164,7 @@
             
 
             document.getElementById("todoBtn").addEventListener("click", function(){
-                let todo = {pname:todoInp.value,price:todoInp2.value,Discount:todoInp3.value}
+                let todo = {pname:todoInp.value,price:todoInp2.value,Discount:todoInp3.value,Available:todoInp4.value}
                 let files = fileInp.files[0];
                 let fileName = files.name;
                 let date = new Date();
@@ -203,7 +204,7 @@
                             <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
                                 <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
                             </span>
-                            <span style="font-size: 20px;" class="px-2"><i class="text-muted" style="font-size: 10px;">${todo.time}</i>
+                            <span style="font-size: 20px;" class="px-2">${todo.time}
                                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
                             </span>
                             <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="${i}">Delete</button>
