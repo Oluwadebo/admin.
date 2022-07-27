@@ -26,6 +26,7 @@
                 width: 100%;
                 position: relative;
                 left: 0px;
+                
               }
             }
         </style>
@@ -47,7 +48,7 @@
                     </li>
                   </ul>
                   <div class="dropdown">
-                    <a href="#" class="d-flex text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>mdo</strong></a>
+                    <a href="#" class="d-flex text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>Anthonymart</strong></a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                       <li><a class="dropdown-item" href="index.html">Sign-In</a></li>
                       <li><hr class="dropdown-divider"></li>
@@ -76,7 +77,7 @@
                                 <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active text-dark" id="admin" style="cursor: pointer;">Admin</a>
+                                <a class="nav-link active text-dark" id="admin" href="admin.html" style="cursor: pointer;">Admin</a>
                             </li>
                             </ul>
                             <div class="d-flex d-block d-md-none" role="search">
@@ -89,17 +90,17 @@
                 </nav>
                 <div class="container">
                     <div class="row h-100">
-                        <div class=" col-12 col-md-5">
-                            <input type="file" class="form-control my-2" id="fileInp">
+                        <div class="col-12 col-md-8">
+                            <div id="allTodo" class="row mt-2"></div>
+                        </div>          
+                        <div class=" col-12 col-md-3">
+                            <input type="file" class="form-control my-2" id="fileInp" accept=".jpg, .jpeg, .png, .gif">
                             <input type="text" placeholder="Product name" class="form-control" id="todoInp">
-                            <input type="text" placeholder="Product price" class="form-control my-2" id="todoInp2">
-                            <input type="text" placeholder="Discount" class="form-control my-2" id="todoInp3">
+                            <input type="text" placeholder="$ Product price" class="form-control my-2" id="todoInp2">
+                            <input type="text" placeholder="Discount %" class="form-control my-2" id="todoInp3">
                             <button class="btn btn-dark w-100 my-2" id="todoBtn">Add</button>
                             <div id="loader" class="display-6 text-center" style="background-color: yellow;"></div>
                         </div>
-                        <div class="col-12 col-md-6 my-2">
-                            <div id="allTodo" class="row"></div>
-                        </div>          
                     </div>
                 </div>
               </div>
@@ -112,7 +113,7 @@
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
             import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
             import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-            import { getStorage, uploadBytes, ref as stRef, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js";
+            import { getStorage, uploadBytes, ref as stRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js";
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
             
@@ -136,10 +137,10 @@
             const storage = getStorage();
 
             let userDetails = {}
-            onAuthStateChanged(auth, (user) =>{
-                if (user) {
-                    userDetails.email = user.email;
-                    userDetails.uid = user.uid;
+            onAuthStateChanged(auth, (admin) =>{
+                if (admin) {
+                    userDetails.email = admin.email;
+                    userDetails.uid = admin.uid;
                 } else {
                     window.location = "signinseler.html";
                 }
@@ -176,10 +177,8 @@
                 uploadImage.on("state-changed", function(snapshot){
                     let totalBytes = snapshot.totalBytes;
                     let bytesTransferred = snapshot.bytesTransferred;
-                    console.log(totalBytes, bytesTransferred);
-
                     let progress = Math.round((bytesTransferred/totalBytes) * 100);
-                    console.log(`${progress}%`);
+
                     loader.innerHTML = `${progress}%`;
                 }, function (error) {
                     loader.innerHTML = `${error}%`
@@ -189,23 +188,28 @@
                     loader.style.color = "white";
                 })
                 
-                
+                todoInp.value = "";
+                todoInp2.value = "";
+                todoInp3.value = "";
             })
 
             function displayTodo (todoArray) {
                 let userTodo = todoArray.filter((each)=> each.email == userDetails.email);
-                console.log(userTodo);
-                let todoHTML = "";
                 userTodo.map((todo, i) => {
-                    todoHTML += `<div class="col-12 col-md-5 card shadow mb-2 p-2 mx-2">
-                        <span style="font-size: 20px;" class="px-2">${todo.todo.pname}</span>
-                        <span style="font-size: 20px;" class="px-2">$ ${todo.todo.price}</span>
-                        <span style="font-size: 20px;" class="px-2">- ${todo.todo.Discount}%</span>
-                        <i class="text-muted px-2" style="font-size: 10px;">${todo.time}</i>
-                        <button class="btn btn-dark my-2" id="${i}">delete</button>
-                    </div>`
+                    let imgRef = stRef(storage, `images/${todo.img_name}`);
+                    getDownloadURL(imgRef).then((url) => {
+                        allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-3 mb-3 p-2">
+                            <img src="${url}" style="height: 100%; object-fit: cover; border-radius:6px 6px 0 0;">
+                            <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
+                                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
+                            </span>
+                            <span style="font-size: 20px;" class="px-2"><i class="text-muted" style="font-size: 10px;">${todo.time}</i>
+                                <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
+                            </span>
+                            <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="${i}">Delete</button>
+                        </div>`
+                    })
                 })
-                allTodo.innerHTML = todoHTML;
             }
 
             document.getElementById("sign-out").addEventListener("click", function() {

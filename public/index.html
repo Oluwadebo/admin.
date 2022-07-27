@@ -46,7 +46,7 @@
               </li>
             </ul>
             <div class="dropdown" >
-              <a href="#" class="d-flex text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>mdo</strong></a>
+              <a href="#" class="d-flex text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>Anthonymart</strong></a>
               <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="index.html">Sign-In</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -56,41 +56,41 @@
           </div>
         </div>
         <div class="col-10 nas">
-            <nav class="col-12 navbar navbar-dark bg-light text-dark">
-                <div class="container">
-                    <a class="navbar-brand text-success" href="#"><h3>Anthonymart</h3></a>
-                    <div class=" d-none d-md-block" role="search">
-                        <input type="search" placeholder="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </div>
-                    <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title text-success" id="offcanvasNavbarLabel">Anthonymart</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <li class="nav-item">
-                                <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link active text-dark" id="admin" style="cursor: pointer;">Admin</a>
-                                </li>
-                            </ul>
-                            <div class="d-flex d-block d-md-none" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <div class="container">
-                <div class="col-12 mx-auto my-2">
-                    <div id="allTodo" class="row"></div>
-                </div>
-            </div>
+          <nav class="col-12 navbar navbar-dark bg-light text-dark">
+              <div class="container">
+                  <a class="navbar-brand text-success" href="#"><h3>Anthonymart</h3></a>
+                  <div class=" d-none d-md-block" role="search">
+                      <input type="search" placeholder="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                  </div>
+                  <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                      <div class="offcanvas-header">
+                          <h5 class="offcanvas-title text-success" id="offcanvasNavbarLabel">Anthonymart</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                              <li class="nav-item">
+                              <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
+                              </li>
+                              <li class="nav-item">
+                              <a class="nav-link active text-dark" href="admin.html" id="admin" style="cursor: pointer;">Admin</a>
+                              </li>
+                          </ul>
+                          <div class="d-flex d-block d-md-none" role="search">
+                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+          <div class="container">
+              <div class="col-12 my-2 mx-auto">
+                <div id="allTodo" class="row mt-3"></div>
+              </div>
+          </div>
         </div>
       </div>
 
@@ -101,7 +101,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
         import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-        import { getStorage, uploadBytes, ref as stRef, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js";
+        import { getStorage, uploadBytes, ref as stRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
         
@@ -137,16 +137,21 @@
         })
 
         function displayTodo (todoArray) {
-            let todoHTML = "";
-            todoArray.map((todo, i) => {
-                todoHTML += `<div class="col-12 col-md-3 card shadow p-2 m-3">
-                    <span style="font-size: 20px;" class="px-2">${todo.todo.pname}</span>
-                    <span style="font-size: 20px;" class="px-2">$ ${todo.todo.price}</span>
-                    <span style="font-size: 20px;" class="px-2">- ${todo.todo.Discount}%</span>
-                    <button class="btn btn-dark my-2" id="${i}">Add to cart</button>
-                </div>`
+          todoArray.map((todo, i,) => {
+            let imgRef = stRef(storage, `images/${todo.img_name}`);
+            getDownloadURL(imgRef).then((url) => {
+              allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 330px; border-radius:6px">
+                <img src="${url}" class="img-fluid" style="height: 66%;object-fit: cover; border-radius:6px 6px 0 0;">
+                <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
+                  <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
+                </span>
+                <span style="font-size: 20px;" class="px-2"><i class="text-muted" style="font-size: 10px;">${todo.time}</i>
+                  <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
+                </span>
+                <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="cart">Add to cart</button>
+              </div>`
             })
-            allTodo.innerHTML = todoHTML;
+          })
         }
       
     </script>
