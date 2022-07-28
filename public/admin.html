@@ -100,7 +100,7 @@
                             <input type="number" placeholder="Discount %" class="form-control my-2" id="todoInp3">
                             <input type="number" placeholder="Quantity available" class="form-control my-2" id="todoInp4">
                             <button class="btn btn-dark w-100 my-2" id="todoBtn">Add</button>
-                            <div id="loader" class="display-6 text-center" style="background-color: yellow;"></div>
+                            <div id="loader" class="display-6 text-center"></div>
                         </div>
                     </div>
                 </div>
@@ -180,9 +180,9 @@
                     let bytesTransferred = snapshot.bytesTransferred;
                     let progress = Math.round((bytesTransferred/totalBytes) * 100);
 
-                    loader.innerHTML = `${progress}%`;
-                }, function (error) {
-                    loader.innerHTML = `${error}%`
+                    loader.innerHTML = `<div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${progress}%"><span style="font-size: 20px;float:right;" class="px-2">${progress}%</span></div>
+                        </div>`;
                 }, function () {
                     loader.innerHTML = "Uploaded!";
                     loader.style.background = "green";
@@ -207,12 +207,15 @@
                             <span style="font-size: 20px;" class="px-2">${todo.time}
                                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
                             </span>
-                            <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="${i}">Delete</button>
+                            <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="ade">Delete</button>
                         </div>`
                     })
                 })
             }
 
+            document.getElementById("ade").addEventListener("click",function () {
+                alert("gfdhddbbg")
+            })
             document.getElementById("sign-out").addEventListener("click", function() {
                 signOut(auth).then((response) => {
                     window.location = "signinseler.html";
