@@ -4,10 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>dashboard</title>
     <style>
       body{
-          overflow-x: hidden;
+        overflow-x: hidden;
       }
       .top{
         margin-top: 10%;
@@ -16,6 +17,26 @@
         width: 85%;
         position: relative;
         left: 215px;
+      }
+      .feature-categories img{
+        padding: 20px 0;
+        transition: 1s;
+        cursor: pointer;
+      }
+      .feature-categories img:hover{
+        transform: scale(1.1);
+      }
+      .product-small-img img{
+        height: 92px;
+        cursor: pointer;
+        display: block;
+        opacity: .6;
+      }
+      .product-small-img img:hover{
+        opacity: 1;
+      }
+      .hei{
+        height: 500px;
       }
       @media only screen and (max-width: 600px){
         .top{
@@ -26,27 +47,30 @@
           position: relative;
           left: 0px;
         }
+        .hei{
+          height: auto;
+        }
       }
     </style>
   </head>
-  <body style="background: linear-gradient(135deg,#9c27b0,#f3f5);">
+  <body style="background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);">
     
     <div class="container-fluid">
 
       <div class="row">
         <div class="col-2 d-none d-lg-block border border-right fixed-top">
           <div class="d-flex flex-column" style="height: 100vh;">
-            <a class="my-3 text-white text-decoration-none" style="cursor: pointer;"><span class="fs-4">Anthonymart</span></a>
+            <a class="my-3 text-decoration-none" style="cursor: pointer;"><span class="fs-4"><h3 class="link-dark">Anthonymart</h3></span></a>
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a href="index.html" class="nav-link active"><svg class="me-2" width="16" height="16"></svg>Home</a>
+                <a href="index.html" class="nav-link active"><h5 class="text-light" style="padding-left:10px;">Home</h5></a>
               </li>
               <li>
-                <a href="admin.html" class="nav-link text-white"><svg class="me-2" width="16" height="16"></svg>Admin</a>
+                <a href="admin.html" class="nav-link link-dark"><h5 class="link-dark" style="padding-left:10px;">Admin</h5></a>
               </li>
             </ul>
             <div class="dropdown" >
-              <a href="#" class="d-flex text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>Anthonymart</strong></a>
+              <a href="#" class="d-flex link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>Anthonymart</strong></a>
               <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="index.html">Sign-In</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -57,77 +81,188 @@
         </div>
         <div class="col-10 nas">
           <nav class="col-12 navbar navbar-dark bg-transparent border border-bottom text-dark">
-              <div class="container">
-                  <a class="navbar-brand text-light" href="#"><h3>Anthonymart</h3></a>
-                  <div class=" d-none d-md-block" role="search">
-                      <input type="search" placeholder="Search">
-                      <button class="btn btn-outline-primary" type="submit">Search</button>
-                  </div>
-                  <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
-                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                      <div class="offcanvas-header">
-                          <h5 class="offcanvas-title text-success" id="offcanvasNavbarLabel">Anthonymart</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                      </div>
-                      <div class="offcanvas-body">
-                          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                              <li class="nav-item">
-                              <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
-                              </li>
-                              <li class="nav-item">
-                              <a class="nav-link active text-dark" href="admin.html" id="admin" style="cursor: pointer;">Admin</a>
-                              </li>
-                          </ul>
-                          <div class="d-flex d-block d-md-none" role="search">
-                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-success" type="submit">Search</button>
-                          </div>
-                      </div>
-                  </div>
+            <div class="container">
+              <a class="navbar-brand text-light" href="#"><h3 class="link-dark">Anthonymart</h3></a>
+              <div class="d-none d-md-block col-6" role="search">
+                <input type="search" class="col-10 p-1" placeholder="Search">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
               </div>
+              <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title link-dark" id="offcanvasNavbarLabel">Anthonymart</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active text-dark" href="admin.html" id="admin" style="cursor: pointer;">Admin</a>
+                    </li>
+                  </ul>
+                  <div class="d-flex d-block d-md-none" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </nav>
           <div class="container">
-              <div class="col-12 my-2 mx-auto">
-                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="4000">
-                      <img src="pic/dhiva-krishna-X16zXcbxU4U-unsplash.jpg" class="d-block w-100" height="500px" alt="dhiva-krishna">
-                      <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>First slide label</h5>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed facilis mollitia dignissimos saepe recusandae a dolorum nihil optio inventore quia consectetur expedita reiciendis quod, maiores amet qui commodi dolor accusantium!</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="4000">
-                      <img src="pic/grahame-jenkins-p7tai9P7H-s-unsplash.jpg" class="d-block w-100" height="500px" alt="josh-berquist">
-                      <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti in nemo quos earum enim voluptas praesentium autem consequuntur, eaque ipsa exercitationem illo atque perspiciatis delectus impedit veritatis debitis cupiditate.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="4000">
-                      <img src="pic/joey-banks-YApiWyp0lqo-unsplash.jpg" class="d-block w-100" height="500px" alt="4216540">
-                      <div class="carousel-caption d-none d-md-block text-white">
-                        <h5>Third slide label</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae iure non autem vitae iste sed, hic in similique fugiat et libero, dolor doloremque dolore necessitatibus eius amet voluptatem? Beatae?</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+            <div class="col-12 my-2 mx-auto">
+              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div id="allTodo" class="row mt-3"></div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="4000">
+                    <img src="pic/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="d-block w-100" height="500px" alt="campbell-3ZUsNJhi_Ik">
+                    <div class="carousel-caption d-none d-md-block text-white">
+                      <h5>First slide label</h5>
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed facilis mollitia dignissimos saepe recusandae a dolorum nihil optio inventore quia consectetur expedita reiciendis quod, maiores amet qui commodi dolor accusantium!</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <img src="pic/david-leveque-esvWH-owWug-unsplash.jpg" class="d-block w-100" height="500px" alt="david-leveque">
+                    <div class="carousel-caption d-none d-md-block text-white">
+                      <h5>Second slide label</h5>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti in nemo quos earum enim voluptas praesentium autem consequuntur, eaque ipsa exercitationem illo atque perspiciatis delectus impedit veritatis debitis cupiditate.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <img src="pic/lance-asper-N9Pf2J656aQ-unsplash.jpg" class="d-block w-100" height="500px" alt="lance-asper">
+                    <div class="carousel-caption d-none d-md-block text-white">
+                      <h5>Third slide label</h5>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae iure non autem vitae iste sed, hic in similique fugiat et libero, dolor doloremque dolore necessitatibus eius amet voluptatem? Beatae?</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <div class="feature-categories">
+                    <img src="pic/gabriel-gurrola-u6BPMXgURuI-unsplash.jpg" class="w-100 h-100">
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="feature-categories">
+                    <img src="pic/mathieu-renier-4WBvCqeMaDE-unsplash.jpg" class="w-100 h-100">
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="feature-categories">
+                    <img src="pic/nate-johnston-PcbJL9CYSXs-unsplash.jpg" class="w-100 h-100">
+                  </div>
+                </div>
+              </div>
+              <div id="allTodo" class="row"></div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-4 col-md-2 my-2">
+                      <div class="product-small-img">
+                        <img id="1" class="all"  src="pic/oli-woodman-fwYZ3B_QQco-unsplash.jpg" onclick="myFunction(1)">
+                      </div>
+                    </div>
+                    <div class="col-4 col-md-2 mx-md-0 mx-5 my-2">
+                      <div class="product-small-img">
+                        <img id="2" class="all"  src="pic/jose-carbajal-8xyki0bqvgw-unsplash.jpg" onclick="myFunction(2)">
+                      </div>
+                    </div>
+                    <div class="col-4 col-md-2 mx-md-0 my-2">
+                      <div class="product-small-img">
+                        <img id="3" class="all"  src="pic/olav-tvedt-yq-efMJMuPg-unsplash.jpg" onclick="myFunction(3)">
+                      </div>
+                    </div>
+                    <div class="col-4 col-md-2 mx-md-0 mx-5 my-2">
+                      <div class="product-small-img">
+                        <img id="4" class="all mx-3 mx-md-0"  src="pic/peter-broomfield-m3m-lnR90uM-unsplash.jpg" onclick="myFunction(4)">
+                      </div>
+                    </div>
+                    <div class="col-4 col-md-2 mx-md-0 my-2">
+                      <div class="product-small-img">
+                        <img id="5" class="all"  src="pic/popescu-andrei-alexandru-KQjBXXPRsYM-unsplash.jpg" onclick="myFunction(5)">
+                      </div>
+                    </div>
+                    <div class="col-4 col-md-2 mx-md-0 mx-5 my-2">
+                      <div class="product-small-img">
+                        <img id="6" class="all"  src="pic/tyler-clemmensen-d1Jum1vVLew-unsplash.jpg" onclick="myFunction(6)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mt-3">
+                  <div class="row">
+                    <div class="col-12 h-25">
+                      <img src="pic/oli-woodman-fwYZ3B_QQco-unsplash.jpg" class="w-100 hei"  id="image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="bd-footer py-4 py-md-5 bg-light bg-transparent">
+                <div class="container py-4 py-md-5 px-4 px-md-3">
+                  <div class="row">
+                    <div class="col-lg-3 mb-3 mb-md-none">
+                      <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none"><span class="fs-5" style="cursor: pointer;">Anthonymart</span></a>
+                      <ul class="list-unstyled small text-muted">
+                        <li class="mb-2 ">Designed and built with all the love in the world by the <b class="link-dark">Anthonymart team</b> with the help of <b class="link-dark">our contributors</b>.</li>
+                      </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 offset-lg-1 mb-3 mb-md-none">
+                      <h5>Links</h5>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Useful Links</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Term of Use</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Return Policy</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Discount Coupons</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3 mb-md-none">
+                      <h5>Guides</h5>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Companys</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">About Us</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Contact Us</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Career</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Affiliate</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3 mb-md-none">
+                      <h5>Follow Us On</h5>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Facebook</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Youtube</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Linkedin</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Twitter</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-6 col-lg-2 mb-3 mb-md-none">
+                      <h5>Let Us Help You</h5>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Your Account</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Your Orders</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Shipping Rates & Policies</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Returns & Replacements</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Anthonymart Assistant</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+            </div>
           </div>
         </div>
       </div>
@@ -178,8 +313,8 @@
           todoArray.map((todo, i,) => {
             let imgRef = stRef(storage, `images/${todo.img_name}`);
             getDownloadURL(imgRef).then((url) => {
-              allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 330px; border-radius:6px">
-                <img src="${url}" class="img-fluid" style="height: 66%;object-fit: cover; border-radius:6px 6px 0 0;">
+              allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
+                <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
                 <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
                   <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
                 </span>
@@ -192,6 +327,13 @@
           })
         }
       
+    </script>
+    <script>
+      function myFunction(num) {
+        var con=document.getElementById('image');
+        var small = document.getElementById(num);
+        con.src=small.src
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
