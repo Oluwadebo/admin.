@@ -16,7 +16,7 @@
           <div class="col-12">
             <div class="card shadow col-12 col-md-6 mx-auto p-1" style="background:rgba(255,255,255,.2)">
               <img src="pic/img_avatar3.png" class="rounded-circle w-25 mx-auto">
-              <h2 class="text-center text-dark py-2"><i>Sign-In</i></h2>
+              <h2 class="text-center text-dark py-2"><i>Sign-In Admin</i></h2>
               <div class="form-floating">
                 <input type="email" class="form-control bg-transparent" id="emailInp" placeholder="Your email" style="border:1px solid #0a5ef0;border-radius:20px;">
                 <label for="emailInp">&#x1F4E7;&nbsp; Your email</label>
@@ -74,18 +74,15 @@
             window.location = "admin.html";
         }).catch((error) =>{
             let mass = error.message;
-            if (mass) {
-              
-            }
             res.innerHTML = `<div class="alert alert-danger">${mass}</div>`;
         })
       })
 
       document.getElementById("signInG").addEventListener("click", function () {
         signInWithPopup(auth, provider).then((credentials) =>{
-          console.log(credentials);
+          window.location = "admin.html";
         }).catch((error) =>{
-          console.log(error);
+          res.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
         })
       })
       

@@ -73,9 +73,9 @@
             <div class="dropdown" >
               <a href="#" class="d-flex link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>Anthonymart</strong></a>
               <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="index.html">Sign-In</a></li>
+                <li><a class="dropdown-item" href="signinbuyer.html">Sign-In</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" id="sign-out">Sign out</a></li>
+                <li class="dropdown-item" onclick="signout()">Sign out</li>
               </ul>
             </div>
           </div>
@@ -301,7 +301,18 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const db = getDatabase();
+      const auth = getAuth();
       const storage = getStorage();
+
+      let userDetails = {}
+      onAuthStateChanged(auth, (users) =>{
+        if (users) {
+          userDetails.email = users.email;
+          userDetails.uid = users.uid;
+        } else {
+          window.location = "signinbuyer.html";
+        }
+      })
 
       let dbRef = ref(db, "todos");
       let todoArray = [];
@@ -340,6 +351,15 @@
         carted.innerHTML = cat
       }
       window.addcart = addcart;
+      
+      const signout =()=>{
+        signOut(auth).then((response) => {
+          window.location = "signinbuyer.html";
+        }).catch((error) => {
+          console.log(response);
+        })
+      } 
+      window.signout = signout;
 
     </script>
     <script>
