@@ -65,7 +65,7 @@
                             <input type="search" class="col-10 p-1" placeholder="Search">
                             <button class="btn btn-outline-primary" type="submit">Search</button>
                         </div>
-                        <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+                        <button class="navbar-toggler bg-secondary d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div class="offcanvas-header">
                                 <h5 class="offcanvas-title link-dark" id="offcanvasNavbarLabel">Anthonymart</h5>
@@ -183,15 +183,13 @@
                     loader.innerHTML = `<div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${progress}%"><span style="font-size: 20px;float:right;" class="px-2">${progress}%</span></div>
                         </div>`;
+                }, function (error) {
+                    console.log(error);
                 }, function () {
                     loader.innerHTML = "Uploaded!";
                     loader.style.background = "green";
                     loader.style.color = "white";
                 })
-                
-                todoInp.value = "";
-                todoInp2.value = "";
-                todoInp3.value = "";
             })
 
             function displayTodo (todoArray) {
@@ -207,11 +205,16 @@
                             <span style="font-size: 20px;" class="px-2">${todo.time}
                                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
                             </span>
-                            <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="ade">Delete</button>
+                            <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="ade" onclick="delet()">Delete</button>
                         </div>`
                     })
                 })
             }
+
+            const delet = ()=>{
+                
+            }
+            window.delet = delet;
 
             document.getElementById("ade").addEventListener("click",function () {
                 alert("gfdhddbbg")
