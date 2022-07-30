@@ -39,6 +39,9 @@
         height: 500px;
         border-radius: 10px;
       }
+      .img{
+        height: 500px;
+      }
       @media only screen and (max-width: 600px){
         .top{
           margin-top: 25%;
@@ -49,6 +52,9 @@
           left: 0px;
         }
         .hei{
+          height: auto;
+        }
+        .img{
           height: auto;
         }
       }
@@ -127,21 +133,21 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active" data-bs-interval="4000">
-                    <img src="pic/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="d-block w-100" height="500px" alt="campbell-3ZUsNJhi_Ik">
+                    <img src="pic/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="d-block w-100 img" alt="campbell-3ZUsNJhi_Ik" style="object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block text-white">
                       <h5>First slide label</h5>
                       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed facilis mollitia dignissimos saepe recusandae a dolorum nihil optio inventore quia consectetur expedita reiciendis quod, maiores amet qui commodi dolor accusantium!</p>
                     </div>
                   </div>
                   <div class="carousel-item" data-bs-interval="4000">
-                    <img src="pic/harley-davidson-eeTJKC_wz34-unsplash.jpg" class="d-block w-100" height="500px" alt="david-leveque">
+                    <img src="pic/harley-davidson-eeTJKC_wz34-unsplash.jpg" class="d-block w-100 img" alt="david-leveque">
                     <div class="carousel-caption d-none d-md-block text-white">
                       <h5>Second slide label</h5>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti in nemo quos earum enim voluptas praesentium autem consequuntur, eaque ipsa exercitationem illo atque perspiciatis delectus impedit veritatis debitis cupiditate.</p>
                     </div>
                   </div>
                   <div class="carousel-item" data-bs-interval="4000">
-                    <img src="pic/lance-asper-N9Pf2J656aQ-unsplash.jpg" class="d-block w-100" height="500px" alt="lance-asper">
+                    <img src="pic/lance-asper-N9Pf2J656aQ-unsplash.jpg" class="d-block w-100 img" alt="lance-asper">
                     <div class="carousel-caption d-none d-md-block text-white">
                       <h5>Third slide label</h5>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae iure non autem vitae iste sed, hic in similique fugiat et libero, dolor doloremque dolore necessitatibus eius amet voluptatem? Beatae?</p>
@@ -250,10 +256,10 @@
                     <div class="col-6 col-lg-2 mb-3 mb-md-none">
                       <h5>Follow Us On</h5>
                       <ul class="list-unstyled">
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Facebook</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Youtube</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Linkedin</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Twitter</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/svgexport-4.png"> Facebook</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/youtube-filled.svg"> Youtube</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/linkedin-icon.svg"> Linkedin</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/twitter-fill.svg" alt=""> Twitter</a></li>
                       </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3 mb-md-none">
@@ -301,18 +307,18 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const db = getDatabase();
-      const auth = getAuth();
+      // const auth = getAuth();
       const storage = getStorage();
 
-      let userDetails = {}
-      onAuthStateChanged(auth, (users) =>{
-        if (users) {
-          userDetails.email = users.email;
-          userDetails.uid = users.uid;
-        } else {
-          window.location = "signinbuyer.html";
-        }
-      })
+      // let userDetails = {}
+      // onAuthStateChanged(auth, (users) =>{
+      //   if (users) {
+      //     userDetails.email = users.email;
+      //     userDetails.uid = users.uid;
+      //   } else {
+      //     window.location = "signinbuyer.html";
+      //   }
+      // })
 
       let dbRef = ref(db, "todos");
       let todoArray = [];
@@ -334,7 +340,7 @@
             allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
               <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
               <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
-                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
+                <span style="font-size: 20px;float:right;" class="px-2"># ${todo.todo.price}</span>
               </span>
               <span style="font-size: 20px;" class="px-2">${todo.todo.Available} Avail
                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
@@ -352,14 +358,14 @@
       }
       window.addcart = addcart;
       
-      const signout =()=>{
-        signOut(auth).then((response) => {
-          window.location = "signinbuyer.html";
-        }).catch((error) => {
-          console.log(response);
-        })
-      } 
-      window.signout = signout;
+      // const signout =()=>{
+      //   signOut(auth).then((response) => {
+      //     window.location = "signinbuyer.html";
+      //   }).catch((error) => {
+      //     console.log(response);
+      //   })
+      // } 
+      // window.signout = signout;
 
     </script>
     <script>
