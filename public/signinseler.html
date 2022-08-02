@@ -31,7 +31,9 @@
               </div>
               <h4 class="text-center text-light">Don't have an account? <i><a href="signupseller.html" class="text-dark">Sign-Up</a></i></h4>
             </div>
-            <div id="res"></div>
+            <div class="col-12">
+              <div id="res" class="shadow col-12 col-md-6 mx-auto m-2"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -71,10 +73,20 @@
 
         signInWithEmailAndPassword(auth, email, password)
         .then((credentials) => {
-            window.location = "admin.html";
+            window.location = "car.html";
         }).catch((error) =>{
-            let mass = error.message;
-            res.innerHTML = `<div class="alert alert-danger">${mass}</div>`;
+          alert(error.message)
+          var a = error.message;
+          var b = "Firebase: Error (auth/network-request-failed).";
+          var c = "Firebase: Error (auth/unauthorized-domain)."
+          var d = "Firebase: Error (auth/internal-error)."
+          if (a==b) {
+            res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
+          }else if (a==c) {
+            res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
+          }else if (a==d) {
+            res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+          }
         })
       })
 
@@ -82,7 +94,17 @@
         signInWithPopup(auth, provider).then((credentials) =>{
           window.location = "admin.html";
         }).catch((error) =>{
-          res.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+          var a = error.message;
+          var b = "Firebase: Error (auth/network-request-failed).";
+          var c = "Firebase: Error (auth/unauthorized-domain)."
+          var d = "Firebase: Error (auth/internal-error)."
+          if (a==b) {
+            res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
+          }else if (a==c) {
+            res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
+          }else if (a==d) {
+            res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+          }
         })
       })
       

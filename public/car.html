@@ -16,7 +16,7 @@
             .nas{
               width: 85%;
               position: relative;
-              left: 200px;
+              left: 225px;
             }
             @media only screen and (max-width: 600px){
               .top{
@@ -31,7 +31,7 @@
             }
         </style>
     </head>
-    <body style="background: linear-gradient(to top, #ca6baf 0%, #5a8ce2 100%);background-repeat: no-repeat;height: 100%;">
+    <body style="background: linear-gradient(to top, #ca6baf 0%, #5a8ce2 100%);background-repeat: no-repeat;height: 100vh;">
         
         <div class="container-fluid">
 
@@ -44,7 +44,7 @@
                       <a href="index.html" class="nav-link link-dark"><h4 class="link-dark" style="padding-left:10px;">Home</h4></a>
                     </li>
                     <li>
-                      <a href="admi.html" class="nav-link active"><h4 style="padding-left:10px;">Admin</h4></a>
+                      <a href="car.html" class="nav-link active"><h4 style="padding-left:10px;">Admin</h4></a>
                     </li>
                   </ul>
                   <div class="dropdown">
@@ -59,76 +59,39 @@
               </div>
               <div class="col-10 nas">
                 <nav class="col-12 navbar navbar-dark text-dark bg-transparent">
-                    <div class="container">
-                        <a class="navbar-brand text-success" href="#"><h3 class="link-dark">Anthonymart</h3></a>
-                        <div class=" d-none d-md-block col-6" role="search">
-                            <input type="search" class="col-10 p-1" placeholder="Search">
-                            <button class="btn btn-outline-primary" type="submit">Search</button>
-                        </div>
-                        <button class="navbar-toggler bg-secondary d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title link-dark" id="offcanvasNavbarLabel">Anthonymart</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active text-dark" id="admin" href="admin.html" style="cursor: pointer;">Admin</a>
-                                </li>
-                                </ul>
-                                <div class="d-flex d-block d-md-none" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                </div>
-                            </div>
-                        </div>
+                  <div class="container">
+                    <div class="d-flex">
+                      <a class="navbar-brand text-success" href="car.html"><h5 class="link-dark" style="text-decoration: underline;">CAR</h5></a>
+                      <a class="navbar-brand text-success mx-5" href="bike.html"><h5 class="link-dark">BIKE</h5></a>
                     </div>
+                    <div class=" d-none d-md-block col-6" role="search">
+                      <input type="search" class="col-10 p-1" placeholder="Search">
+                      <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </div>
+                    <button class="navbar-toggler bg-secondary d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title link-dark" id="offcanvasNavbarLabel">Anthonymart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                          <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" id="admin" href="car.html" style="cursor: pointer;">Admin</a>
+                          </li>
+                        </ul>
+                        <div class="d-flex d-block d-md-none" role="search">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </nav>
                 <div class="container">
-                    <div class="col-12 my-2 mx-auto">
-                        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="pic/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="d-block w-100" height="500px" alt="campbell-3ZUsNJhi_Ik">
-                                <div class="carousel-caption d-none d-md-block text-white">
-                                  <h5>First slide label</h5>
-                                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed facilis mollitia dignissimos saepe recusandae a dolorum nihil optio inventore quia consectetur expedita reiciendis quod, maiores amet qui commodi dolor accusantium!</p>
-                                </div>
-                              </div>
-                              <div class="carousel-item" data-bs-interval="4000">
-                                <img src="pic/harley-davidson-eeTJKC_wz34-unsplash.jpg" class="d-block w-100" height="500px" alt="david-leveque">
-                                <div class="carousel-caption d-none d-md-block text-white">
-                                  <h5>Second slide label</h5>
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti in nemo quos earum enim voluptas praesentium autem consequuntur, eaque ipsa exercitationem illo atque perspiciatis delectus impedit veritatis debitis cupiditate.</p>
-                                </div>
-                              </div>
-                              <div class="carousel-item" data-bs-interval="4000">
-                                <img src="pic/lance-asper-N9Pf2J656aQ-unsplash.jpg" class="d-block w-100" height="500px" alt="lance-asper">
-                                <div class="carousel-caption d-none d-md-block text-white">
-                                  <h5>Third slide label</h5>
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae iure non autem vitae iste sed, hic in similique fugiat et libero, dolor doloremque dolore necessitatibus eius amet voluptatem? Beatae?</p>
-                                </div>
-                              </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                    </div>
                     <div class="row h-100">
                         <div class="col-12 col-md-8">
                             <div id="allTodo" class="row mt-2"></div>
@@ -213,7 +176,7 @@
                 let todoRef = ref(db, `todos/${todoId}`);
                 set(todoRef, todoObj);
 
-                let imgRef = stRef(storage, `images/${fileName}`);
+                let imgRef = stRef(storage, `Cars/${fileName}`);
                 let uploadImage = uploadBytesResumable(imgRef, files);
                 uploadImage.on("state-changed", function(snapshot){
                     let totalBytes = snapshot.totalBytes;
@@ -235,10 +198,10 @@
             function displayTodo (todoArray) {
                 let userTodo = todoArray.filter((each)=> each.email == userDetails.email);
                 userTodo.map((todo, i) => {
-                    let imgRef = stRef(storage, `images/${todo.img_name}`);
+                    let imgRef = stRef(storage, `Cars/${todo.img_name}`);
                     getDownloadURL(imgRef).then((url) => {
                         allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-3 mb-3 p-2">
-                            <img src="${url}" style="height: 100%; object-fit: cover; border-radius:6px 6px 0 0;">
+                            <img src="${url}" style="height: 50%; object-fit: cover; border-radius:6px 6px 0 0;">
                             <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
                                 <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
                             </span>

@@ -53,6 +53,7 @@
         }
         .hei{
           height: auto;
+          width: 100%;
         }
         .img{
           height: auto;
@@ -73,7 +74,7 @@
                 <a href="index.html" class="nav-link active"><h5 class="text-light" style="padding-left:10px;">Home</h5></a>
               </li>
               <li>
-                <a href="admin.html" class="nav-link link-dark"><h5 class="link-dark" style="padding-left:10px;">Admin</h5></a>
+                <a href="car.html" class="nav-link link-dark"><h5 class="link-dark" style="padding-left:10px;">Admin</h5></a>
               </li>
             </ul>
             <div class="dropdown" >
@@ -94,13 +95,13 @@
                 <input type="search" class="col-10 p-1" placeholder="Search">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
               </div>
-              <div type="button" class="btn btn-primary bg-transparent position-relative" style="border: none;">
+              <div type="button" class="btn btn-primary bg-transparent position-relative" style="border: none;" onclick="cart()">
                 <i class="fa fa-cart-shopping"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                   <span id="carted">0</span>
                 </span> 
               </div>
-              <button class="navbar-toggler bg-secondary d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+              <button class="navbar-toggler bg-dark d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title link-dark" id="offcanvasNavbarLabel">Anthonymart</h5>
@@ -112,7 +113,7 @@
                       <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active text-dark" href="admin.html" id="admin" style="cursor: pointer;">Admin</a>
+                      <a class="nav-link active text-dark" href="car.html" id="admin" style="cursor: pointer;">Admin</a>
                     </li>
                   </ul>
                   <div class="d-flex d-block d-md-none" role="search">
@@ -129,28 +130,20 @@
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="4000">
-                    <img src="pic/campbell-3ZUsNJhi_Ik-unsplash.jpg" class="d-block w-100 img" alt="campbell-3ZUsNJhi_Ik" style="object-fit: cover;">
-                    <div class="carousel-caption d-none d-md-block text-white">
-                      <h5>First slide label</h5>
-                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed facilis mollitia dignissimos saepe recusandae a dolorum nihil optio inventore quia consectetur expedita reiciendis quod, maiores amet qui commodi dolor accusantium!</p>
+                  <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="pictures/banner5.jpg" class="d-block w-100 img" alt="campbell-3ZUsNJhi_Ik">
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                      <p>50% off in all products</p>
+                      <h5>Man Fashion</h5>
                     </div>
                   </div>
-                  <div class="carousel-item" data-bs-interval="4000">
-                    <img src="pic/harley-davidson-eeTJKC_wz34-unsplash.jpg" class="d-block w-100 img" alt="david-leveque">
-                    <div class="carousel-caption d-none d-md-block text-white">
-                      <h5>Second slide label</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti in nemo quos earum enim voluptas praesentium autem consequuntur, eaque ipsa exercitationem illo atque perspiciatis delectus impedit veritatis debitis cupiditate.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="4000">
-                    <img src="pic/lance-asper-N9Pf2J656aQ-unsplash.jpg" class="d-block w-100 img" alt="lance-asper">
-                    <div class="carousel-caption d-none d-md-block text-white">
-                      <h5>Third slide label</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quae iure non autem vitae iste sed, hic in similique fugiat et libero, dolor doloremque dolore necessitatibus eius amet voluptatem? Beatae?</p>
+                  <div class="carousel-item" data-bs-interval="5000">
+                    <img src="pictures/banner4.jpg" class="d-block w-100 img" alt="david-leveque">
+                    <div class="carousel-caption d-none d-md-block text-dark">
+                      <p>50% off in all products</p>
+                      <h5>Man Fashion</h5>
                     </div>
                   </div>
                 </div>
@@ -166,60 +159,60 @@
               <div class="row">
                 <div class="col-12 col-md-4">
                   <div class="feature-categories">
-                    <img src="pic/gabriel-gurrola-u6BPMXgURuI-unsplash.jpg" class="w-100 h-100">
+                    <img src="pictures/img5.jpg" class="w-100 h-100">
                   </div>
                 </div>
                 <div class="col-12 col-md-4">
                   <div class="feature-categories">
-                    <img src="pic/lino-C2SzUyg3PPQ-unsplash.jpg" class="w-100 h-100">
+                    <img src="pictures/img1.jpg" class="w-100 h-100">
                   </div>
                 </div>
                 <div class="col-12 col-md-4">
                   <div class="feature-categories">
-                    <img src="pic/nate-johnston-PcbJL9CYSXs-unsplash.jpg" class="w-100 h-100">
+                    <img src="pictures/product_img4.jpg" class="w-100 h-100">
                   </div>
                 </div>
               </div>
               <div id="allTodo" class="row"></div>
-              <div class="row">
-                <div class="col-12">
+              <div class="row mt-3">
+                <div class="col-12 col-md-4">
                   <div class="row">
+                    <div class="col-12 my-2">
+                      <div class="product-small-img">
+                        <img id="1" class="all"  src="pictures/product_img5.jpg" onclick="myFunction(1)">
+                      </div>
+                    </div>
+                    <div class="col-12 my-2">
+                      <div class="product-small-img">
+                        <img id="2" class="all"  src="pictures/product_img6.jpg" onclick="myFunction(2)">
+                      </div>
+                    </div>
+                    <div class="col-12 my-2">
+                      <div class="product-small-img">
+                        <img id="3" class="all"  src="pictures/product_img7.jpg" onclick="myFunction(3)">
+                      </div>
+                    </div>
+                    <div class="col-12 my-2">
+                      <div class="product-small-img">
+                        <img id="4" class="all"  src="pictures/product_img9.jpg" onclick="myFunction(4)">
+                      </div>
+                    </div>
                     <div class="col-4 col-md-2 my-2">
                       <div class="product-small-img">
-                        <img id="1" class="all"  src="pic/kushal-medhi-gw4enPeVQDM-unsplash.jpg" onclick="myFunction(1)">
+                        <img id="5" class="all"  src="pictures/product_img14.jpg" onclick="myFunction(5)">
                       </div>
                     </div>
-                    <div class="col-4 col-md-2 mx-md-0 mx-5 my-2">
+                    <div class="col-4 col-md-2 my-2">
                       <div class="product-small-img">
-                        <img id="2" class="all"  src="pic/jose-carbajal-8xyki0bqvgw-unsplash.jpg" onclick="myFunction(2)">
-                      </div>
-                    </div>
-                    <div class="col-4 col-md-2 mx-md-0 my-2">
-                      <div class="product-small-img">
-                        <img id="3" class="all"  src="pic/olav-tvedt-yq-efMJMuPg-unsplash.jpg" onclick="myFunction(3)">
-                      </div>
-                    </div>
-                    <div class="col-4 col-md-2 mx-md-0 mx-5 my-2">
-                      <div class="product-small-img">
-                        <img id="4" class="all mx-3 mx-md-0"  src="pic/peter-broomfield-m3m-lnR90uM-unsplash.jpg" onclick="myFunction(4)">
-                      </div>
-                    </div>
-                    <div class="col-4 col-md-2 mx-md-0 my-2">
-                      <div class="product-small-img">
-                        <img id="5" class="all"  src="pic/popescu-andrei-alexandru-KQjBXXPRsYM-unsplash.jpg" onclick="myFunction(5)">
-                      </div>
-                    </div>
-                    <div class="col-4 col-md-2 mx-md-0 mx-5 my-2">
-                      <div class="product-small-img">
-                        <img id="6" class="all"  src="pic/tyler-clemmensen-d1Jum1vVLew-unsplash.jpg" onclick="myFunction(6)">
+                        <img id="6" class="all"  src="pictures/product_img15.jpg" onclick="myFunction(6)">
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 mt-3">
+                <div class="col-12 col-md-8">
                   <div class="row">
                     <div class="col-12 h-25">
-                      <img src="pic/harley-davidson-eeTJKC_wz34-unsplash.jpg" class="w-100 hei"  id="image">
+                      <img src="pictures/product_img5.jpg" class="hei"  id="image">
                     </div>
                   </div>
                 </div>
@@ -248,7 +241,7 @@
                       <ul class="list-unstyled">
                         <li class="mb-2"><a href="" class="text-decoration-none link-dark">Companys</a></li>
                         <li class="mb-2"><a href="" class="text-decoration-none link-dark">About Us</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark">Contact Us</a></li>
+                        <li class="mb-2"><a href="conta.html" class="text-decoration-none link-dark">Contact Us</a></li>
                         <li class="mb-2"><a href="" class="text-decoration-none link-dark">Career</a></li>
                         <li class="mb-2"><a href="" class="text-decoration-none link-dark">Affiliate</a></li>
                       </ul>
@@ -335,12 +328,25 @@
 
       function displayTodo (todoArray) {
         todoArray.map((todo, i,) => {
-          let imgRef = stRef(storage, `images/${todo.img_name}`);
+          let imgRef = stRef(storage, `Cars/${todo.img_name}`);
           getDownloadURL(imgRef).then((url) => {
             allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
               <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
               <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
-                <span style="font-size: 20px;float:right;" class="px-2"># ${todo.todo.price}</span>
+                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
+              </span>
+              <span style="font-size: 20px;" class="px-2">${todo.todo.Available} Avail
+                <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
+              </span>
+              <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="cart" onclick="addcart()">Add to cart</button>
+            </div>`
+          })
+          let imgRefs= stRef(storage, `BIkes/${todo.img_name}`);
+          getDownloadURL(imgRefs).then((url) => {
+            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
+              <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
+              <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
+                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
               </span>
               <span style="font-size: 20px;" class="px-2">${todo.todo.Available} Avail
                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
@@ -350,7 +356,7 @@
           })
         })
       }
-      
+
       let cat = parseInt(0);
       const addcart = ()=>{
         cat = cat + 1;
@@ -369,6 +375,10 @@
 
     </script>
     <script>
+      const cart = ()=>{
+        window.location = "addtocart.html"
+      }
+      window.cart = cart;
       function myFunction(num) {
         var con=document.getElementById('image');
         var small = document.getElementById(num);

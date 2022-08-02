@@ -93,18 +93,37 @@
                 let user = {full_name: fname.value, phone_no: number.value, email: emailInp.value, uid: credentials.user.uid};
                 let userRef = ref(db, `admins/${user_id}`);
                 set(userRef, user);
-                window.location = "admin.html";              
+                window.location = "car.html";              
             }).catch((error) => {
-                console.log(error)
-                res.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+              var a = error.message;
+              var b = "Firebase: Error (auth/network-request-failed).";
+              var c = "Firebase: Error (auth/unauthorized-domain)."
+              var d = "Firebase: Error (auth/internal-error)."
+              if (a==b) {
+                res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
+              }else if (a==c) {
+                res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
+              }else if (a==d) {
+                res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+              }
             })
         })
       
         document.getElementById("signInG").addEventListener("click", function () {
         signInWithPopup(auth, provider).then((credentials) =>{
-          window.location = "admin.html";
+          window.location = "car.html";
         }).catch((error) =>{
-          res.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+          var a = error.message;
+          var b = "Firebase: Error (auth/network-request-failed).";
+          var c = "Firebase: Error (auth/unauthorized-domain)."
+          var d = "Firebase: Error (auth/internal-error)."
+          if (a==b) {
+            res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
+          }else if (a==c) {
+            res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
+          }else if (a==d) {
+            res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+          }
         })
       })
       
