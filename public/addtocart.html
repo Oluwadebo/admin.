@@ -158,10 +158,10 @@
                     <div class="col-6 col-lg-2 mb-3 mb-md-none">
                       <h5>Follow Us On</h5>
                       <ul class="list-unstyled">
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/svgexport-4.png"> Facebook</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/youtube-filled.svg"> Youtube</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/linkedin-icon.svg"> Linkedin</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/twitter-fill.svg" alt=""> Twitter</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/svgexport-4.png"> Facebook</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/youtube-filled.svg"> Youtube</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/linkedin-icon.svg"> Linkedin</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/twitter-fill.svg" alt=""> Twitter</a></li>
                       </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3 mb-md-none">
@@ -239,8 +239,8 @@
         todoArray.map((todo, i,) => {
           let imgRef = stRef(storage, `Cars/${todo.img_name}`);
           getDownloadURL(imgRef).then((url) => {
-            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
-              <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
+            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="border-radius:6px">
+              <img src="${url}" class="img-fluid" style="height: 90%;object-fit: cover; border-radius:6px 6px 0 0;">
               <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
                 <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
               </span>
@@ -252,8 +252,8 @@
           })
           let imgRefs= stRef(storage, `BIkes/${todo.img_name}`);
           getDownloadURL(imgRefs).then((url) => {
-            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
-              <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
+            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style=" border-radius:6px">
+              <img src="${url}" class="img-fluid" style="height: 90%;object-fit: cover; border-radius:6px 6px 0 0;">
               <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
                 <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
               </span>

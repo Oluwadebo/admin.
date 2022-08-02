@@ -42,6 +42,86 @@
       .img{
         height: 500px;
       }
+      .title-box{
+        background-color: orange;
+        color: #fff;
+        width: 180px;
+        padding: 4px 10px;
+        height: 40px;
+        margin-bottom: 30px;
+        display: flex;
+      }
+      .title-box h2{
+        font-size: 24px;
+      }
+      .title-box::after{
+        content: "";
+        border-top: 40px solid orange;
+        border-right: 50px solid transparent;
+        position: absolute;
+        display: flex;
+        margin-top: -4px;
+        margin-left: 170px;
+      }
+      .product-top{
+        position: relative;
+      }
+      .product-top img{
+        width: 100%;
+        height: 80%;
+        object-fit: fill;
+      }
+      .overlay-right{
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 15%;
+        margin-left: 0;
+        width: 70px;
+      }
+      .overlay-right .fa{
+        cursor: pointer;
+        background-color: #fff;
+        color: #000;
+        height: 35px;
+        width: 35px;
+        font-size: 20px;
+        padding: 7px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
+      .overlay-right h3{
+        cursor: pointer;
+        background-color: #fff;
+        color: #000;
+        height: 35px;
+        width: 126px;
+        font-size: 20px;
+        padding: 7px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
+      .overlay-right span{
+        cursor: pointer;
+        /* background-color: #fff;
+        color: #000; */
+        height: 35px;
+        width: 300px;
+        font-size: 20px;
+        padding: 7px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
+       .overlay-right .btn-secondary{
+        background: none !important;
+        border:none !important;
+        box-shadow: none !important;
+      }
+      .product-top:hover .overlay-right{
+        opacity: 1;
+        margin-left: 5%;
+        transition: 0.5s;
+      }
       @media only screen and (max-width: 600px){
         .top{
           margin-top: 25%;
@@ -56,6 +136,10 @@
           width: 100%;
         }
         .img{
+          height: auto;
+        }
+        .product-top img{
+          width: 100%;
           height: auto;
         }
       }
@@ -88,7 +172,7 @@
           </div>
         </div>
         <div class="col-10 nas">
-          <nav class="col-12 navbar navbar-dark bg-transparent text-dark">
+         <nav class="col-12 navbar navbar-dark bg-transparent text-dark">
             <div class="container">
               <a class="navbar-brand text-light" href="#"><h3 class="link-dark">Anthonymart</h3></a>
               <div class="d-none d-md-block col-6" role="search">
@@ -142,8 +226,8 @@
                   <div class="carousel-item" data-bs-interval="5000">
                     <img src="pictures/banner4.jpg" class="d-block w-100 img" alt="david-leveque">
                     <div class="carousel-caption d-none d-md-block text-dark">
-                      <p>50% off in all products</p>
-                      <h5>Man Fashion</h5>
+                      <p>Taking your viewing Experience to Next Level</p>
+                      <h5>Summer Sale</h5>
                     </div>
                   </div>
                 </div>
@@ -173,36 +257,98 @@
                   </div>
                 </div>
               </div>
-              <div id="allTodo" class="row"></div>
+              <div class="row">
+                <div class="col-6 title-box">
+                  <h2>On Sale</h2>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-10 col-md-4 product-top mx-auto">
+                      <img src="pictures/go5.jfif">
+                      <div class="overlay-right">
+                        <button type="button" class="btn btn-secondary" title="Quick Shop">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to wish list">
+                          <i class="fa fa-heart"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart">
+                          <i class="fa fa-shopping-cart"></i>
+                        </button>
+                        <h3>Men Dress</h3>
+                      </div>
+                    </div>
+                    <div class="col-10 col-md-4 product-top mt-3 mt-md-0 mx-auto">
+                      <img src="pictures/sidebar_banner_img.jpg">
+                      <div class="overlay-right">
+                        <button type="button" class="btn btn-secondary" title="Quick Shop">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to wish list">
+                          <i class="fa fa-heart"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart">
+                          <i class="fa fa-shopping-cart"></i>
+                        </button>
+                        <h3>Ladies Dress</h3>
+                      </div>
+                    </div>
+                    <div class="col-10 col-md-4 product-top mt-3 mt-md-0 mx-auto">
+                      <img src="pictures/96874305_OTc3LTEyODAtMjAwOWY5NjM2Yg.jpg">
+                      <div class="overlay-right">
+                        <button type="button" class="btn btn-secondary" title="Quick Shop">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to wish list">
+                          <i class="fa fa-heart"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" title="Add to Cart">
+                          <i class="fa fa-shopping-cart"></i>
+                        </button>
+                        <h3>Men Dress</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 title-box">
+                  <h2>New Arrivals</h2>
+                </div>
+                <div class="col-12">
+                  <div class="row" id="allTodo"></div>
+                  <div class="row" id="allodo"></div>
+                </div>
+              </div>
               <div class="row mt-3">
                 <div class="col-12 col-md-4">
                   <div class="row">
-                    <div class="col-12 my-2">
+                    <div class="col-4 col-md-12 my-2">
                       <div class="product-small-img">
                         <img id="1" class="all"  src="pictures/product_img5.jpg" onclick="myFunction(1)">
                       </div>
                     </div>
-                    <div class="col-12 my-2">
+                    <div class="col-4 col-md-12 my-2">
                       <div class="product-small-img">
                         <img id="2" class="all"  src="pictures/product_img6.jpg" onclick="myFunction(2)">
                       </div>
                     </div>
-                    <div class="col-12 my-2">
+                    <div class="col-4 col-md-12 my-2">
                       <div class="product-small-img">
                         <img id="3" class="all"  src="pictures/product_img7.jpg" onclick="myFunction(3)">
                       </div>
                     </div>
-                    <div class="col-12 my-2">
+                    <div class="col-4 col-md-12 my-2">
                       <div class="product-small-img">
                         <img id="4" class="all"  src="pictures/product_img9.jpg" onclick="myFunction(4)">
                       </div>
                     </div>
-                    <div class="col-4 col-md-2 my-2">
+                    <div class="col-4 col-md-12 my-2">
                       <div class="product-small-img">
                         <img id="5" class="all"  src="pictures/product_img14.jpg" onclick="myFunction(5)">
                       </div>
                     </div>
-                    <div class="col-4 col-md-2 my-2">
+                    <div class="col-4 col-md-12 my-2">
                       <div class="product-small-img">
                         <img id="6" class="all"  src="pictures/product_img15.jpg" onclick="myFunction(6)">
                       </div>
@@ -211,7 +357,7 @@
                 </div>
                 <div class="col-12 col-md-8">
                   <div class="row">
-                    <div class="col-12 h-25">
+                    <div class="col-12 h-25 mt-3 mt-md-0">
                       <img src="pictures/product_img5.jpg" class="hei"  id="image">
                     </div>
                   </div>
@@ -249,10 +395,10 @@
                     <div class="col-6 col-lg-2 mb-3 mb-md-none">
                       <h5>Follow Us On</h5>
                       <ul class="list-unstyled">
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/svgexport-4.png"> Facebook</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/youtube-filled.svg"> Youtube</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/linkedin-icon.svg"> Linkedin</a></li>
-                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pic/twitter-fill.svg" alt=""> Twitter</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/svgexport-4.png"> Facebook</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/youtube-filled.svg"> Youtube</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/linkedin-icon.svg"> Linkedin</a></li>
+                        <li class="mb-2"><a href="" class="text-decoration-none link-dark"><img src="pictures/twitter-fill.svg" alt=""> Twitter</a></li>
                       </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3 mb-md-none">
@@ -326,33 +472,62 @@
           }
       })
 
+      let money = "\u20A6"
       function displayTodo (todoArray) {
         todoArray.map((todo, i,) => {
           let imgRef = stRef(storage, `Cars/${todo.img_name}`);
           getDownloadURL(imgRef).then((url) => {
-            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
-              <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
-              <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
-                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
-              </span>
-              <span style="font-size: 20px;" class="px-2">${todo.todo.Available} Avail
-                <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
-              </span>
-              <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="cart" onclick="addcart()">Add to cart</button>
-            </div>`
+            allTodo.innerHTML += `<div class="col-10 col-md-4 product-top mx-auto">
+                <img src="${url}" class="img-fluid" style="height: 100%;object-fit: container;">
+                <div class="overlay-right">
+                  <button type="button" class="btn btn-secondary" title="Quick Shop">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary" title="Add to wish list">
+                    <i class="fa fa-heart"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary" title="Add to Cart">
+                    <i class="fa fa-shopping-cart" id="cart" onclick="addcart()"></i>
+                  </button>
+                  <div class="row">
+                    <div class="col-12 mx-auto d-flex">
+                      <span style="font-size: 20px;" class="px-2">${todo.todo.pname}</span>
+                      <span style="font-size: 20px;float:right;" class="px-2">${money}&nbsp${todo.todo.price}</span>
+                    </div>
+                    <div class="col-12 mx-auto d-flex">
+                      <span style="font-size: 20px;" class="px-2">${todo.todo.Available}&nbspAvail</span>
+                      <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>`
           })
           let imgRefs= stRef(storage, `BIkes/${todo.img_name}`);
           getDownloadURL(imgRefs).then((url) => {
-            allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-4 mb-4 p-2" style="height: 415px; border-radius:6px">
-              <img src="${url}" class="img-fluid" style="height: 76%;object-fit: cover; border-radius:6px 6px 0 0;">
-              <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
-                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
-              </span>
-              <span style="font-size: 20px;" class="px-2">${todo.todo.Available} Avail
-                <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
-              </span>
-              <button class="btn btn-dark my-2" style="border-radius:0 0 6px 6px;" id="cart" onclick="addcart()">Add to cart</button>
-            </div>`
+            allTodo.innerHTML += `<div class="col-10 col-md-4 product-top mx-auto">
+                <img src="${url}" class="img-fluid" style="height: 100%;object-fit: container;">
+                <div class="overlay-right">
+                  <button type="button" class="btn btn-secondary" title="Quick Shop">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary" title="Add to wish list">
+                    <i class="fa fa-heart"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary" title="Add to Cart">
+                    <i class="fa fa-shopping-cart" id="cart" onclick="addcart()"></i>
+                  </button>
+                  <div class="row">
+                    <div class="col-12 mx-auto d-flex">
+                      <span style="font-size: 20px;" class="px-2">${todo.todo.pname}</span>
+                      <span style="font-size: 20px;float:right;" class="px-2">${money}&nbsp${todo.todo.price}</span>
+                    </div>
+                    <div class="col-12 mx-auto d-flex">
+                      <span style="font-size: 20px;" class="px-2">${todo.todo.Available}&nbspAvail</span>
+                      <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>`
           })
         })
       }

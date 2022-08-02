@@ -15,7 +15,7 @@
         <div class="row">
           <div class="col-12">
             <div class="card shadow col-12 col-md-6 mx-auto p-1" style="background:rgba(255,255,255,.2)">
-              <img src="pic/img_avatar3.png" class="rounded-circle w-25 mx-auto">
+              <img src="img_avatar3.png" class="rounded-circle w-25 mx-auto">
               <h2 class="text-center text-dark py-2"><i>Sign-In Admin</i></h2>
               <div class="form-floating">
                 <input type="email" class="form-control bg-transparent" id="emailInp" placeholder="Your email" style="border:1px solid #0a5ef0;border-radius:20px;">
@@ -75,17 +75,34 @@
         .then((credentials) => {
             window.location = "car.html";
         }).catch((error) =>{
-          alert(error.message)
           var a = error.message;
           var b = "Firebase: Error (auth/network-request-failed).";
-          var c = "Firebase: Error (auth/unauthorized-domain)."
-          var d = "Firebase: Error (auth/internal-error)."
+          var c = "Firebase: Error (auth/unauthorized-domain).";
+          var d = "Firebase: Error (auth/internal-error).";
+          var f = "Firebase: Error (auth/invalid-email).";
+          var g = "Firebase: Error (auth/missing-email).";
+          var h = "Firebase: Password should be at least 6 characters (auth/weak-password).";
+          var i = "Firebase: Error (auth/email-already-in-use).";
+          var j = "Firebase: Error (auth/wrong-password).";
+          var k = "Firebase: Error (auth/user-not-found).";
           if (a==b) {
             res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
           }else if (a==c) {
             res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
           }else if (a==d) {
             res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+          }else if (a==f) {
+            res.innerHTML = `<div class="alert alert-danger">invalid-email</div>`;
+          }else if (a==g) {
+            res.innerHTML = `<div class="alert alert-danger">missing-email</div>`;
+          }else if (a==h) {
+            res.innerHTML = `<div class="alert alert-danger">Password should be at least 6 characters (weak-password)</div>`;
+          }else if (a==i) {
+            res.innerHTML = `<div class="alert alert-danger">email-already-in-use</div>`;
+          }else if (a==j) {
+            res.innerHTML = `<div class="alert alert-danger">wrong-password</div>`;
+          }else if (a==k) {
+            res.innerHTML = `<div class="alert alert-danger">user-not-found</div>`;
           }
         })
       })
@@ -96,14 +113,32 @@
         }).catch((error) =>{
           var a = error.message;
           var b = "Firebase: Error (auth/network-request-failed).";
-          var c = "Firebase: Error (auth/unauthorized-domain)."
-          var d = "Firebase: Error (auth/internal-error)."
+          var c = "Firebase: Error (auth/unauthorized-domain).";
+          var d = "Firebase: Error (auth/internal-error).";
+          var f = "Firebase: Error (auth/invalid-email).";
+          var g = "Firebase: Error (auth/missing-email).";
+          var h = "Firebase: Password should be at least 6 characters (auth/weak-password).";
+          var i = "Firebase: Error (auth/email-already-in-use).";
+          var j = "Firebase: Error (auth/wrong-password).";
+          var k = "Firebase: Error (auth/user-not-found).";
           if (a==b) {
             res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
           }else if (a==c) {
             res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
           }else if (a==d) {
             res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+          }else if (a==f) {
+            res.innerHTML = `<div class="alert alert-danger">invalid-email</div>`;
+          }else if (a==g) {
+            res.innerHTML = `<div class="alert alert-danger">missing-email</div>`;
+          }else if (a==h) {
+            res.innerHTML = `<div class="alert alert-danger">Password should be at least 6 characters (weak-password)</div>`;
+          }else if (a==i) {
+            res.innerHTML = `<div class="alert alert-danger">email-already-in-use</div>`;
+          }else if (a==j) {
+            res.innerHTML = `<div class="alert alert-danger">wrong-password</div>`;
+          }else if (a==k) {
+            res.innerHTML = `<div class="alert alert-danger">user-not-found</div>`;
           }
         })
       })

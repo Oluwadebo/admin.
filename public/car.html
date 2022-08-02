@@ -61,8 +61,10 @@
                 <nav class="col-12 navbar navbar-dark text-dark bg-transparent">
                   <div class="container">
                     <div class="d-flex">
-                      <a class="navbar-brand text-success" href="car.html"><h5 class="link-dark" style="text-decoration: underline;">CAR</h5></a>
-                      <a class="navbar-brand text-success mx-5" href="bike.html"><h5 class="link-dark">BIKE</h5></a>
+                      <a class="navbar-brand text-success d-none d-md-block" href="car.html"><h5 class="link-dark" style="text-decoration: underline;">MEN-DRESS</h5></a>
+                      <a class="navbar-brand text-success d-block d-md-none" href="car.html"><h5 class="link-dark" style="text-decoration: underline;">MEN<br>DRESS</h5></a>
+                      <a class="navbar-brand text-success mx-5 d-none d-md-block" href="bike.html"><h5 class="link-dark">LADIES-DRESS</h5></a>
+                      <a class="navbar-brand text-success mx-5 d-block d-md-none" href="bike.html"><h5 class="link-dark">LADIES<br>DRESS</h5></a>
                     </div>
                     <div class=" d-none d-md-block col-6" role="search">
                       <input type="search" class="col-10 p-1" placeholder="Search">
@@ -83,6 +85,14 @@
                             <a class="nav-link active text-dark" id="admin" href="car.html" style="cursor: pointer;">Admin</a>
                           </li>
                         </ul>
+                        <div class="dropdown">
+                          <a href="#" class="d-flex link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><img src="img_avatar3.png" width="32" height="32" class="rounded-circle me-2"><h4>Anthonymart</h4></a>
+                          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="signinseler.html">Sign-In</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-item" onclick="signout()">Sign out</li>
+                          </ul>
+                        </div>
                         <div class="d-flex d-block d-md-none" role="search">
                           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
@@ -99,7 +109,7 @@
                         <div class=" col-12 col-md-3">
                             <input type="file" class="form-control my-2" id="fileInp" accept=".jpg, .jpeg, .png, .gif">
                             <input type="text" placeholder="Product name" class="form-control" id="todoInp">
-                            <input type="number" placeholder="$ Product price" class="form-control my-2" id="todoInp2">
+                            <input type="number" placeholder="₦ Product price" class="form-control my-2" id="todoInp2">
                             <input type="number" placeholder="Discount %" class="form-control my-2" id="todoInp3">
                             <input type="number" placeholder="Quantity available" class="form-control my-2" id="todoInp4">
                             <button class="btn btn-dark w-100 my-2" id="todoBtn">Add Product</button>
@@ -195,15 +205,16 @@
                 })
             })
 
+            let money = "\u20A6" 
             function displayTodo (todoArray) {
                 let userTodo = todoArray.filter((each)=> each.email == userDetails.email);
                 userTodo.map((todo, i) => {
                     let imgRef = stRef(storage, `Cars/${todo.img_name}`);
                     getDownloadURL(imgRef).then((url) => {
                         allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-3 mb-3 p-2">
-                            <img src="${url}" style="height: 50%; object-fit: cover; border-radius:6px 6px 0 0;">
+                            <img src="${url}" style="height: 90%; object-fit: cover; border-radius:6px 6px 0 0;">
                             <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
-                                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
+                                <span style="font-size: 20px;float:right;" class="px-2">${money} ${todo.todo.price}</span>
                             </span>
                             <span style="font-size: 20px;" class="px-2">${todo.time}
                                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>

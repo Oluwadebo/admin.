@@ -61,8 +61,10 @@
                 <nav class="col-12 navbar navbar-dark text-dark bg-transparent">
                     <div class="container">
                         <div class="d-flex">
-                            <a class="navbar-brand text-success" href="car.html"><h5 class="link-dark">CAR</h5></a>
-                            <a class="navbar-brand text-success mx-5" href="bike.html"><h5 class="link-dark" style="text-decoration: underline;">BIKE</h5></a>
+                            <a class="navbar-brand text-success d-md-block d-none" href="car.html"><h5 class="link-dark">MEN-DRESS</h5></a>
+                            <a class="navbar-brand text-success d-block d-md-none" href="car.html"><h5 class="link-dark">MEN<br>DRESS</h5></a>
+                            <a class="navbar-brand text-success mx-5 d-md-block d-none" href="bike.html"><h5 class="link-dark" style="text-decoration: underline;">LADIES-DRESS</h5></a>
+                            <a class="navbar-brand text-success mx-5 d-block d-md-none" href="bike.html"><h5 class="link-dark" style="text-decoration: underline;">LADIES<br>DRESS</h5></a>
                         </div>
                         <div class=" d-none d-md-block col-6" role="search">
                             <input type="search" class="col-10 p-1" placeholder="Search">
@@ -99,7 +101,7 @@
                         <div class=" col-12 col-md-3">
                             <input type="file" class="form-control my-2" id="fileInp" accept=".jpg, .jpeg, .png, .gif">
                             <input type="text" placeholder="Product name" class="form-control" id="todoInp">
-                            <input type="number" placeholder="$ Product price" class="form-control my-2" id="todoInp2">
+                            <input type="number" placeholder="₦ Product price" class="form-control my-2" id="todoInp2">
                             <input type="number" placeholder="Discount %" class="form-control my-2" id="todoInp3">
                             <input type="number" placeholder="Quantity available" class="form-control my-2" id="todoInp4">
                             <button class="btn btn-dark w-100 my-2" id="todoBtn">Add Product</button>
@@ -165,7 +167,7 @@
         
 
             
-
+            let money = "\u20A6"
             document.getElementById("todoBtn").addEventListener("click", function(){
                 let todo = {pname:todoInp.value,price:todoInp2.value,Discount:todoInp3.value,Available:todoInp4.value}
                 let files = fileInp.files[0];
@@ -201,9 +203,9 @@
                     let imgRef = stRef(storage, `BIkes/${todo.img_name}`);
                     getDownloadURL(imgRef).then((url) => {
                         allTodo.innerHTML += `<div class="col-12 col-md-5 card shadow mx-md-3 mb-3 p-2">
-                            <img src="${url}" style="height: 50%; object-fit: cover; border-radius:6px 6px 0 0;">
+                            <img src="${url}" style="height: 90%; object-fit: cover; border-radius:6px 6px 0 0;">
                             <span style="font-size: 20px;" class="px-2">${todo.todo.pname}
-                                <span style="font-size: 20px;float:right;" class="px-2">$ ${todo.todo.price}</span>
+                                <span style="font-size: 20px;float:right;" class="px-2">${money} ${todo.todo.price}</span>
                             </span>
                             <span style="font-size: 20px;" class="px-2">${todo.time}
                                 <span style="font-size: 20px;float:right;" class="px-2">-${todo.todo.Discount}%</span>
