@@ -109,7 +109,7 @@
 
       document.getElementById("signInG").addEventListener("click", function () {
         signInWithPopup(auth, provider).then((credentials) =>{
-          window.location = "admin.html";
+          window.location = "car.html";
         }).catch((error) =>{
           var a = error.message;
           var b = "Firebase: Error (auth/network-request-failed).";
